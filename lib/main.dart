@@ -28,14 +28,25 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Center(
-          child: Text(
-            'AmirahamdAdibi',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
+          backgroundColor: Colors.transparent,
+          body: Column(
+            children: [
+              Expanded(
+                child: Center(
+                  child: Container(
+                    width: 155,
+                    height: 77,
+                    child: Image(
+                      image: AssetImage('images/logo_splash.png'),
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                children: [Text('from'), Text('ExpertFutter')],
+              )
+            ],
+          )),
     );
   }
 }
