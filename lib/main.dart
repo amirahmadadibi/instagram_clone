@@ -10,6 +10,7 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
@@ -29,22 +30,29 @@ class SplashScreen extends StatelessWidget {
       ),
       child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Column(
+          body: Stack(
+            alignment: AlignmentDirectional.bottomCenter,
             children: [
-              Expanded(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 80),
                 child: Center(
-                  child: Container(
-                    width: 155,
-                    height: 77,
-                    child: Image(
-                      image: AssetImage('images/logo_splash.png'),
-                    ),
+                  child: Image(
+                    image: AssetImage('images/logo_splash.png'),
                   ),
                 ),
               ),
-              Column(
-                children: [Text('from'), Text('ExpertFutter')],
-              )
+              Positioned(
+                  bottom: 32,
+                  child: Column(
+                    children: [
+                      Text(
+                        'from',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Text('ExpertFlutter',
+                          style: TextStyle(color: Colors.blue)),
+                    ],
+                  ))
             ],
           )),
     );
