@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/switch_account_screen.dart';
 
 void main() {
   runApp(Application());
@@ -11,7 +12,7 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: SwitchAccountScreen(),
     );
   }
 }
