@@ -55,31 +55,26 @@ class SwitchAccountScreen extends StatelessWidget {
                                 height: 20,
                               ),
                               Text('AmirahmadAdibi',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                  style: Theme.of(context).textTheme.headline4),
                               SizedBox(
                                 height: 20,
                               ),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Color(0xffF35383),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
+                              SizedBox(
+                                height: 46,
+                                width: 129,
+                                child: ElevatedButton(
+                                  style: Theme.of(context)
+                                      .elevatedButtonTheme
+                                      .style,
+                                  onPressed: () {},
+                                  child: Text('Confirm'),
                                 ),
-                                onPressed: () {},
-                                child: Text('Confirm'),
                               ),
                               SizedBox(
                                 height: 20,
                               ),
                               Text('switch account',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white))
+                                  style: Theme.of(context).textTheme.headline4)
                             ],
                           ),
                         ),
@@ -91,9 +86,23 @@ class SwitchAccountScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(top: 132, bottom: 63),
-              child: Text(
-                'dont have an account?',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'don\'t have an account? / ',
+                    style: TextStyle(
+                        fontFamily: 'GB',
+                        color: Colors.grey[700],
+                        fontSize: 16),
+                  ),
+                  Text(
+                    'Sign up',
+                    style: TextStyle(
+                        fontFamily: 'GB', color: Colors.white, fontSize: 20),
+                  )
+                ],
               ),
             )
           ],
