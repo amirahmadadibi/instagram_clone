@@ -13,6 +13,7 @@ class SwitchAccountScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Stack(
+                alignment: AlignmentDirectional.center,
                 children: [
                   Container(
                     decoration: BoxDecoration(
@@ -23,7 +24,8 @@ class SwitchAccountScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Center(
+                  Positioned(
+                    top: 250,
                     child: ClipRRect(
                       child: BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
@@ -52,16 +54,32 @@ class SwitchAccountScreen extends StatelessWidget {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('AmirahmadAdibi'),
+                              Text('AmirahmadAdibi',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
                               SizedBox(
                                 height: 20,
                               ),
                               ElevatedButton(
-                                  onPressed: () {}, child: Text('Continue')),
+                                style: ElevatedButton.styleFrom(
+                                  primary: Color(0xffF35383),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                ),
+                                onPressed: () {},
+                                child: Text('Confirm'),
+                              ),
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('switch account')
+                              Text('switch account',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white))
                             ],
                           ),
                         ),
