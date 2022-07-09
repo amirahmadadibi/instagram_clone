@@ -5,10 +5,18 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        alignment: AlignmentDirectional.bottomCenter,
-        children: [_getImageContainer(), _getContainerBox()],
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xff323A99), Color(0xffF98BFC)])),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          alignment: AlignmentDirectional.bottomCenter,
+          children: [_getImageContainer(), _getContainerBox()],
+        ),
       ),
     );
   }
@@ -20,10 +28,10 @@ class LoginScreen extends StatelessWidget {
         Expanded(
             child: Container(
           decoration: BoxDecoration(
-            color: Colors.red,
+            color: Color(0xff1C1F2E),
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
             ),
           ),
         ))
