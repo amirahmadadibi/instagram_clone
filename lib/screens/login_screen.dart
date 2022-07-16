@@ -166,4 +166,11 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    negahban1.dispose();
+    negahban2.dispose();
+    super.dispose();
+  }
 }
