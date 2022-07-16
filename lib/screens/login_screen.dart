@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  FocusNode negahban1 = FocusNode();
+  FocusNode negahban2 = FocusNode();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    negahban1.addListener(() {
+      setState(() {});
+    });
+    negahban2.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +80,18 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 44),
                   child: TextField(
+                    focusNode: negahban1,
                     decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                          fontFamily: 'GM', fontSize: 20, color: Colors.white),
+                        fontFamily: 'GM',
+                        fontSize: 20,
+                        color: negahban1.hasFocus
+                            ? Color(0xffF35383)
+                            : Colors.white,
+                      ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                         borderSide:
@@ -87,12 +113,18 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 44),
                   child: TextField(
+                    focusNode: negahban2,
                     decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                      labelText: 'Email',
+                      labelText: 'Password',
                       labelStyle: TextStyle(
-                          fontFamily: 'GM', fontSize: 20, color: Colors.white),
+                        fontFamily: 'GM',
+                        fontSize: 20,
+                        color: negahban2.hasFocus
+                            ? Color(0xffF35383)
+                            : Colors.white,
+                      ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                         borderSide:
