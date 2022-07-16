@@ -57,19 +57,53 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 34,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      borderSide:
-                          BorderSide(color: Color(0xffC5C5C5), width: 3.0),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 44),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                      labelText: 'Email',
+                      labelStyle: TextStyle(
+                          fontFamily: 'GM', fontSize: 20, color: Colors.white),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide:
+                            BorderSide(color: Color(0xffC5C5C5), width: 3.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide: BorderSide(
+                          width: 3,
+                          color: Color(0xffF35383),
+                        ),
+                      ),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      borderSide: BorderSide(
-                        width: 3,
-                        color: Color(0xffF35383),
+                  ),
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 44),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                      labelText: 'Email',
+                      labelStyle: TextStyle(
+                          fontFamily: 'GM', fontSize: 20, color: Colors.white),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide:
+                            BorderSide(color: Color(0xffC5C5C5), width: 3.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide: BorderSide(
+                          width: 3,
+                          color: Color(0xffF35383),
+                        ),
                       ),
                     ),
                   ),
