@@ -26,15 +26,38 @@ class LoginScreen extends StatelessWidget {
       children: [
         Expanded(child: Container()),
         Expanded(
-            child: Container(
-          decoration: BoxDecoration(
-            color: Color(0xff1C1F2E),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15),
-              topRight: Radius.circular(15),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xff1C1F2E),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Sign in to ',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    Image(image: AssetImage('images/mood.png'))
+                  ],
+                )
+              ],
             ),
           ),
-        ))
+        )
       ],
     );
   }
