@@ -53,6 +53,26 @@ class LoginScreen extends StatelessWidget {
                     ),
                     Image(image: AssetImage('images/mood.png'))
                   ],
+                ),
+                SizedBox(
+                  height: 34,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderSide:
+                          BorderSide(color: Color(0xffC5C5C5), width: 3.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Color(0xffF35383),
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
