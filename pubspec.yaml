@@ -101,6 +101,11 @@ flutter:
       fonts:
         - asset: assets/fonts/GilroyHeavy.ttf
           weight: 900
+
+    - family: SM
+      fonts:
+        - asset: assets/fonts/ShabnamMedium.ttf
+          weight: 500
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
