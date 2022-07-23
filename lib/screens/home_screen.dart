@@ -49,12 +49,75 @@ class HomeScreen extends StatelessWidget {
                   child: Image.asset('images/icon_video.png'),
                 ),
                 Positioned(
-                    bottom: 15,
-                    child: Container(
-                      width: 340,
-                      height: 46,
-                      decoration: BoxDecoration(color: Colors.red),
-                    ))
+                  bottom: 15,
+                  child: ClipRRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+                      child: Container(
+                        width: 340,
+                        height: 46,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                Color.fromRGBO(255, 255, 255, 0.5),
+                                Color.fromRGBO(255, 255, 255, 0.2),
+                              ]),
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Row(
+                              children: [
+                                Image.asset('images/icon_hart.png'),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Text(
+                                  '2.5 k',
+                                  style: TextStyle(
+                                      fontFamily: 'GB',
+                                      fontSize: 14,
+                                      color: Colors.white),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              width: 42,
+                            ),
+                            Row(
+                              children: [
+                                Image.asset('images/icon_comments.png'),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Text(
+                                  '1.5 k',
+                                  style: TextStyle(
+                                      fontFamily: 'GB',
+                                      fontSize: 14,
+                                      color: Colors.white),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              width: 42,
+                            ),
+                            Image.asset('images/icon_share.png'),
+                            SizedBox(
+                              width: 42,
+                            ),
+                            Image.asset('images/icon_save.png'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
