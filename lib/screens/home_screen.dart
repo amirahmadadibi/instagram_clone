@@ -29,25 +29,29 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         body: SafeArea(
-          child: Center(
-            child: ListView.builder(
-                itemCount: 9,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      SizedBox(
-                        height: 34,
-                      ),
-                      _getHeaderPost(),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      _getPostContent()
-                    ],
-                  );
-                }),
-          ),
+          child: Center(child: ListView.builder(itemBuilder: (context, index) {
+            return _getStoryListBox();
+          })),
         ));
+  }
+
+  Widget _getPostList() {
+    return ListView.builder(
+        itemCount: 9,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              SizedBox(
+                height: 34,
+              ),
+              _getHeaderPost(),
+              SizedBox(
+                height: 24,
+              ),
+              _getPostContent()
+            ],
+          );
+        });
   }
 
   Widget _getPostContent() {
@@ -188,6 +192,25 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           height: 38,
           width: 38,
+          child: Image.asset('images/profile.png'),
+        ),
+      ),
+    );
+  }
+
+  Widget _getStoryListBox() {
+    return DottedBorder(
+      borderType: BorderType.RRect,
+      radius: Radius.circular(17),
+      padding: EdgeInsets.all(4),
+      color: Color(0xffF35383),
+      dashPattern: [40, 10],
+      strokeWidth: 2,
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        child: Container(
+          height: 58,
+          width: 58,
           child: Image.asset('images/profile.png'),
         ),
       ),
