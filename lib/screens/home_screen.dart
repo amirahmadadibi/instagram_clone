@@ -29,9 +29,16 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         body: SafeArea(
-          child: Center(child: ListView.builder(itemBuilder: (context, index) {
-            return _getStoryListBox();
-          })),
+          child: Center(
+              child: Container(
+            height: 120,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return index == 0 ? _getAddSotryBox() : _getStoryListBox();
+                }),
+          )),
         ));
   }
 
@@ -199,43 +206,71 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _getStoryListBox() {
-    return DottedBorder(
-      borderType: BorderType.RRect,
-      radius: Radius.circular(17),
-      padding: EdgeInsets.all(4),
-      color: Color(0xffF35383),
-      dashPattern: [40, 10],
-      strokeWidth: 2,
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        child: Container(
-          height: 58,
-          width: 58,
-          child: Image.asset('images/profile.png'),
-        ),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+      child: Column(
+        children: [
+          DottedBorder(
+            borderType: BorderType.RRect,
+            radius: Radius.circular(17),
+            padding: EdgeInsets.all(4),
+            color: Color(0xffF35383),
+            dashPattern: [40, 10],
+            strokeWidth: 2,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              child: Container(
+                height: 58,
+                width: 58,
+                child: Image.asset('images/profile.png'),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 12,
+          ),
+          Text(
+            'test',
+            style: TextStyle(color: Colors.white),
+          )
+        ],
       ),
     );
   }
 
   Widget _getAddSotryBox() {
     return Container(
-      width: 64,
-      height: 64,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(17),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(2),
-        child: Container(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(
-            color: Color(0xff1C1F2E),
-            borderRadius: BorderRadius.circular(15),
+      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+      child: Column(
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(17),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(2),
+              child: Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Color(0xff1C1F2E),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Image.asset('images/icon_plus.png'),
+              ),
+            ),
           ),
-          child: Image.asset('images/icon_plus.png'),
-        ),
+          SizedBox(
+            height: 12,
+          ),
+          Text(
+            'your story',
+            style: TextStyle(color: Colors.white),
+          )
+        ],
       ),
     );
   }
