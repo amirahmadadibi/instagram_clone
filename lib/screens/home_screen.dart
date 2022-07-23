@@ -9,119 +9,137 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1C1F2E),
-      appBar: AppBar(
-        centerTitle: false,
         backgroundColor: Color(0xff1C1F2E),
-        elevation: 0,
-        title: Container(
-          width: 128,
-          height: 24,
-          child: Image.asset('images/moodinger_logo.png'),
-        ),
-        actions: [
-          Container(
+        appBar: AppBar(
+          centerTitle: false,
+          backgroundColor: Color(0xff1C1F2E),
+          elevation: 0,
+          title: Container(
+            width: 128,
             height: 24,
-            width: 24,
-            margin: EdgeInsets.only(right: 18),
-            child: Image.asset('images/icon_direct.png'),
-          )
-        ],
-      ),
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            height: 440,
-            width: 394,
-            child: Stack(
-              alignment: AlignmentDirectional.bottomCenter,
-              children: [
-                Positioned(
-                  top: 0,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.asset('images/post_cover.png'),
-                  ),
-                ),
-                Positioned(
-                  top: 15,
-                  right: 15,
-                  child: Image.asset('images/icon_video.png'),
-                ),
-                Positioned(
-                  bottom: 15,
-                  child: ClipRRect(
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
-                      child: Container(
-                        width: 340,
-                        height: 46,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [
-                                Color.fromRGBO(255, 255, 255, 0.5),
-                                Color.fromRGBO(255, 255, 255, 0.2),
-                              ]),
-                        ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Row(
-                              children: [
-                                Image.asset('images/icon_hart.png'),
-                                SizedBox(
-                                  width: 6,
-                                ),
-                                Text(
-                                  '2.5 k',
-                                  style: TextStyle(
-                                      fontFamily: 'GB',
-                                      fontSize: 14,
-                                      color: Colors.white),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 42,
-                            ),
-                            Row(
-                              children: [
-                                Image.asset('images/icon_comments.png'),
-                                SizedBox(
-                                  width: 6,
-                                ),
-                                Text(
-                                  '1.5 k',
-                                  style: TextStyle(
-                                      fontFamily: 'GB',
-                                      fontSize: 14,
-                                      color: Colors.white),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 42,
-                            ),
-                            Image.asset('images/icon_share.png'),
-                            SizedBox(
-                              width: 42,
-                            ),
-                            Image.asset('images/icon_save.png'),
-                          ],
-                        ),
+            child: Image.asset('images/moodinger_logo.png'),
+          ),
+          actions: [
+            Container(
+              height: 24,
+              width: 24,
+              margin: EdgeInsets.only(right: 18),
+              child: Image.asset('images/icon_direct.png'),
+            )
+          ],
+        ),
+        body: SafeArea(
+          child: Center(
+            child: ListView.builder(
+                itemCount: 9,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: 34,
                       ),
-                    ),
-                  ),
-                )
-              ],
+                      _getHeaderPost(),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      _getPostContent()
+                    ],
+                  );
+                }),
+          ),
+        ));
+  }
+
+  Widget _getPostContent() {
+    return Container(
+      height: 440,
+      width: 394,
+      child: Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: [
+          Positioned(
+            top: 0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.asset('images/post_cover.png'),
             ),
           ),
-        ),
+          Positioned(
+            top: 15,
+            right: 15,
+            child: Image.asset('images/icon_video.png'),
+          ),
+          Positioned(
+            bottom: 15,
+            child: ClipRRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+                child: Container(
+                  width: 340,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [
+                          Color.fromRGBO(255, 255, 255, 0.5),
+                          Color.fromRGBO(255, 255, 255, 0.2),
+                        ]),
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Row(
+                        children: [
+                          Image.asset('images/icon_hart.png'),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text(
+                            '2.5 k',
+                            style: TextStyle(
+                                fontFamily: 'GB',
+                                fontSize: 14,
+                                color: Colors.white),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        width: 42,
+                      ),
+                      Row(
+                        children: [
+                          Image.asset('images/icon_comments.png'),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text(
+                            '1.5 k',
+                            style: TextStyle(
+                                fontFamily: 'GB',
+                                fontSize: 14,
+                                color: Colors.white),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        width: 42,
+                      ),
+                      Image.asset('images/icon_share.png'),
+                      SizedBox(
+                        width: 42,
+                      ),
+                      Image.asset('images/icon_save.png'),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
