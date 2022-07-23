@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
@@ -28,37 +30,66 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 18),
-            child: Row(
+          child: Container(
+            height: 440,
+            width: 394,
+            child: Stack(
+              alignment: AlignmentDirectional.bottomCenter,
               children: [
-                _getStoryBox(),
-                Padding(
-                  padding: EdgeInsets.only(left: 12),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'amirhamadadibii',
-                        style: TextStyle(
-                            fontFamily: 'GB',
-                            color: Colors.white,
-                            fontSize: 12),
-                      ),
-                      Text(
-                        'امیراحمدادیبی برنامه‌نویس موبایل',
-                        style: TextStyle(color: Colors.white, fontFamily: 'SM'),
-                      )
-                    ],
+                Positioned(
+                  top: 0,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.asset('images/post_cover.png'),
                   ),
                 ),
-                Spacer(),
-                Image.asset('images/icon_menu.png')
+                Positioned(
+                  top: 15,
+                  right: 15,
+                  child: Image.asset('images/icon_video.png'),
+                ),
+                Positioned(
+                    bottom: 15,
+                    child: Container(
+                      width: 340,
+                      height: 46,
+                      decoration: BoxDecoration(color: Colors.red),
+                    ))
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _getHeaderPost() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18),
+      child: Row(
+        children: [
+          _getStoryBox(),
+          Padding(
+            padding: EdgeInsets.only(left: 12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'amirhamadadibii',
+                  style: TextStyle(
+                      fontFamily: 'GB', color: Colors.white, fontSize: 12),
+                ),
+                Text(
+                  'امیراحمدادیبی برنامه‌نویس موبایل',
+                  style: TextStyle(color: Colors.white, fontFamily: 'SM'),
+                )
+              ],
+            ),
+          ),
+          Spacer(),
+          Image.asset('images/icon_menu.png')
+        ],
       ),
     );
   }
