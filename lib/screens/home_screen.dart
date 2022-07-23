@@ -8,6 +8,24 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
+      appBar: AppBar(
+        centerTitle: false,
+        backgroundColor: Color(0xff1C1F2E),
+        elevation: 0,
+        title: Container(
+          width: 128,
+          height: 24,
+          child: Image.asset('images/moodinger_logo.png'),
+        ),
+        actions: [
+          Container(
+            height: 24,
+            width: 24,
+            margin: EdgeInsets.only(right: 18),
+            child: Image.asset('images/icon_direct.png'),
+          )
+        ],
+      ),
       body: SafeArea(
         child: Center(
           child: _getStoryBox(),
