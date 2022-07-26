@@ -29,8 +29,16 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Column(
-          children: [_getSotryList(), _getPostList()],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 120,
+                child: _getSotryList(),
+              ),
+              _getPostList()
+            ],
+          ),
         ),
       ),
     );
@@ -50,6 +58,8 @@ class HomeScreen extends StatelessWidget {
 
   Widget _getPostList() {
     return ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemCount: 9,
         itemBuilder: (context, index) {
           return Column(
