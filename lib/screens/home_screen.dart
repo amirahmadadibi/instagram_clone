@@ -32,6 +32,21 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          height: 300,
+                          child: Center(
+                            child: Text('TextAmirahamd'),
+                          ),
+                        );
+                      });
+                },
+                child: Text('Open BottomSheet'),
+              ),
               SizedBox(
                 height: 120,
                 child: _getSotryList(),
