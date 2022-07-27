@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:instagram/screens/share_bottomsheet.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -35,14 +36,11 @@ class HomeScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   showModalBottomSheet(
+                      barrierColor: Colors.transparent,
+                      backgroundColor: Colors.transparent,
                       context: context,
                       builder: (BuildContext context) {
-                        return Container(
-                          height: 300,
-                          child: Center(
-                            child: Text('TextAmirahamd'),
-                          ),
-                        );
+                        return ShareBottomSheet();
                       });
                 },
                 child: Text('Open BottomSheet'),
