@@ -13,6 +13,7 @@ class ShareBottomSheet extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 40.0, sigmaY: 40.0),
         child: Container(
+          color: Color.fromRGBO(255, 255, 255, 0.09),
           height: 300,
           child: Column(
             children: [
