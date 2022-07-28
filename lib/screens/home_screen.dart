@@ -39,8 +39,18 @@ class HomeScreen extends StatelessWidget {
                       barrierColor: Colors.transparent,
                       backgroundColor: Colors.transparent,
                       context: context,
+                      isScrollControlled: true,
                       builder: (BuildContext context) {
-                        return ShareBottomSheet();
+                        return DraggableScrollableSheet(
+                          initialChildSize: 0.4,
+                          minChildSize: 0.2,
+                          maxChildSize: 0.7,
+                          builder: (context, controler) {
+                            return ShareBottomSheet(
+                              controller: controler,
+                            );
+                          },
+                        );
                       });
                 },
                 child: Text('Open BottomSheet'),

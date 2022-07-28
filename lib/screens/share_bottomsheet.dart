@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ShareBottomSheet extends StatelessWidget {
-  const ShareBottomSheet({Key? key}) : super(key: key);
-
+  const ShareBottomSheet({this.controller, Key? key}) : super(key: key);
+  final ScrollController? controller;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -24,7 +24,8 @@ class ShareBottomSheet extends StatelessWidget {
 
   Widget _getContent() {
     return GridView.builder(
-        itemCount: 30,
+        controller: controller,
+        itemCount: 100,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
