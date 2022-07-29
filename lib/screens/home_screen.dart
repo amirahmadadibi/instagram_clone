@@ -30,40 +30,52 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                      barrierColor: Colors.transparent,
-                      backgroundColor: Colors.transparent,
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (BuildContext context) {
-                        return DraggableScrollableSheet(
-                          initialChildSize: 0.4,
-                          minChildSize: 0.2,
-                          maxChildSize: 0.7,
-                          builder: (context, controler) {
-                            return ShareBottomSheet(
-                              controller: controler,
-                            );
-                          },
-                        );
-                      });
-                },
-                child: Text('Open BottomSheet'),
-              ),
-              SizedBox(
-                height: 120,
-                child: _getSotryList(),
-              ),
-              _getPostList()
-            ],
+          child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: ElevatedButton(
+              onPressed: () {
+                showModalBottomSheet(
+                    barrierColor: Colors.transparent,
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (BuildContext context) {
+                      return DraggableScrollableSheet(
+                        initialChildSize: 0.4,
+                        minChildSize: 0.2,
+                        maxChildSize: 0.7,
+                        builder: (context, controler) {
+                          return ShareBottomSheet(
+                            controller: controler,
+                          );
+                        },
+                      );
+                    });
+              },
+              child: Text('Open BottomSheet'),
+            ),
           ),
-        ),
-      ),
+          SliverToBoxAdapter(
+            child: _getSotryList(),
+          ),
+          SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+            return Column(
+              children: [
+                SizedBox(
+                  height: 34,
+                ),
+                _getHeaderPost(),
+                SizedBox(
+                  height: 24,
+                ),
+                _getPostContent()
+              ],
+            );
+          }, childCount: 4))
+        ],
+      )),
     );
   }
 
