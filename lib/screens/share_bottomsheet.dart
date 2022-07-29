@@ -23,18 +23,33 @@ class ShareBottomSheet extends StatelessWidget {
   }
 
   Widget _getContent() {
-    return GridView.builder(
-        controller: controller,
-        itemCount: 100,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
-          crossAxisCount: 4,
-        ),
-        itemBuilder: (BuildContext context, index) {
-          return Container(
-            color: Colors.red,
-          );
-        });
+    // return GridView.builder(
+    //     controller: controller,
+    //     itemCount: 100,
+    //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //       crossAxisSpacing: 20,
+    //       mainAxisSpacing: 20,
+    //       crossAxisCount: 4,
+    //     ),
+    //     itemBuilder: (BuildContext context, index) {
+    //       return Container(
+    //         color: Colors.red,
+    //       );
+    //     });
+
+    return CustomScrollView(
+      controller: controller,
+      slivers: [
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(((context, index) {
+            return Container(
+              color: Colors.red,
+            );
+          })),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20),
+        )
+      ],
+    );
   }
 }
