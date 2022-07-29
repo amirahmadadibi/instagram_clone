@@ -41,15 +41,19 @@ class HomeScreen extends StatelessWidget {
                     context: context,
                     isScrollControlled: true,
                     builder: (BuildContext context) {
-                      return DraggableScrollableSheet(
-                        initialChildSize: 0.4,
-                        minChildSize: 0.2,
-                        maxChildSize: 0.7,
-                        builder: (context, controler) {
-                          return ShareBottomSheet(
-                            controller: controler,
-                          );
-                        },
+                      return Padding(
+                        padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).viewInsets.bottom),
+                        child: DraggableScrollableSheet(
+                          initialChildSize: 0.5,
+                          minChildSize: 0.2,
+                          maxChildSize: 0.7,
+                          builder: (context, controler) {
+                            return ShareBottomSheet(
+                              controller: controler,
+                            );
+                          },
+                        ),
                       );
                     });
               },

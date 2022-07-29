@@ -15,7 +15,6 @@ class ShareBottomSheet extends StatelessWidget {
         child: Container(
           color: Color.fromRGBO(255, 255, 255, 0.09),
           padding: EdgeInsets.symmetric(horizontal: 40),
-          height: 300,
           child: _getContent(),
         ),
       ),
@@ -75,14 +74,21 @@ class ShareBottomSheet extends StatelessWidget {
                   color: Color.fromRGBO(255, 255, 255, 0.4),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     children: [
                       Image.asset('images/icon_search.png'),
                       SizedBox(
                         width: 8,
                       ),
-                      Expanded(child: TextField()),
+                      Expanded(
+                          child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search User',
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                        ),
+                      )),
                     ],
                   ),
                 ),
@@ -98,7 +104,7 @@ class ShareBottomSheet extends StatelessWidget {
             return Container(
               color: Colors.red,
             );
-          })),
+          }), childCount: 100),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4, crossAxisSpacing: 20, mainAxisSpacing: 20),
         )
