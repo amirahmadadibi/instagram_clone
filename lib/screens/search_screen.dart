@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -8,45 +9,67 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              height: 46,
-              margin: EdgeInsets.only(left: 18, right: 18, top: 12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(13)),
-                color: Color(0xff272B40),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  children: [
-                    Image.asset('images/icon_search.png'),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search User',
-                          hintStyle: TextStyle(color: Colors.white),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Image.asset('images/icon_scan.png'),
-                  ],
-                ),
-              ),
-            ),
-            _getSotryList()
-          ],
+        child: GridView.custom(
+          gridDelegate: SliverQuiltedGridDelegate(
+              crossAxisCount: 4,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4,
+              pattern: [
+                QuiltedGridTile(2, 2),
+                QuiltedGridTile(1, 1),
+                QuiltedGridTile(1, 1),
+                QuiltedGridTile(1, 2),
+              ]),
+          childrenDelegate: SliverChildBuilderDelegate(
+            ((context, index) {
+              return Container(
+                color: Colors.red,
+              );
+            }),
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _getContetn() {
+    return Column(
+      children: [
+        Container(
+          height: 46,
+          margin: EdgeInsets.only(left: 18, right: 18, top: 12),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(13)),
+            color: Color(0xff272B40),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Image.asset('images/icon_search.png'),
+                SizedBox(
+                  width: 15,
+                ),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search User',
+                      hintStyle: TextStyle(color: Colors.white),
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Image.asset('images/icon_scan.png'),
+              ],
+            ),
+          ),
+        ),
+        _getSotryList()
+      ],
     );
   }
 
