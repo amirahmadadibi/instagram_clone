@@ -12,8 +12,8 @@ class SearchScreen extends StatelessWidget {
         child: GridView.custom(
           gridDelegate: SliverQuiltedGridDelegate(
               crossAxisCount: 3,
-              mainAxisSpacing: 4,
-              crossAxisSpacing: 4,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
               repeatPattern: QuiltedGridRepeatPattern.inverted,
               pattern: [
                 QuiltedGridTile(2, 1),
@@ -25,14 +25,19 @@ class SearchScreen extends StatelessWidget {
           childrenDelegate: SliverChildBuilderDelegate(((context, index) {
             return Container(
               decoration: BoxDecoration(
-                color: Colors.green,
                 borderRadius: BorderRadius.all(
                   Radius.circular(10),
                 ),
               ),
-              child: Center(child: Text('$index')),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: Image.asset('images/item$index.png'),
+                ),
+              ),
             );
-          }), childCount: 40),
+          }), childCount: 10),
         ),
       ),
     );
