@@ -11,22 +11,28 @@ class SearchScreen extends StatelessWidget {
       body: SafeArea(
         child: GridView.custom(
           gridDelegate: SliverQuiltedGridDelegate(
-              crossAxisCount: 4,
+              crossAxisCount: 3,
               mainAxisSpacing: 4,
               crossAxisSpacing: 4,
+              repeatPattern: QuiltedGridRepeatPattern.inverted,
               pattern: [
+                QuiltedGridTile(2, 1),
                 QuiltedGridTile(2, 2),
                 QuiltedGridTile(1, 1),
                 QuiltedGridTile(1, 1),
-                QuiltedGridTile(1, 2),
+                QuiltedGridTile(1, 1),
               ]),
-          childrenDelegate: SliverChildBuilderDelegate(
-            ((context, index) {
-              return Container(
-                color: Colors.red,
-              );
-            }),
-          ),
+          childrenDelegate: SliverChildBuilderDelegate(((context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              child: Center(child: Text('$index')),
+            );
+          }), childCount: 40),
         ),
       ),
     );
