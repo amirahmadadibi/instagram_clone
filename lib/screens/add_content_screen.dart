@@ -8,8 +8,44 @@ class AddContentScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
       body: SafeArea(
-        child: Column(
-          children: [],
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: _getHeaderSection(),
+            ),
+            SliverToBoxAdapter(
+              child: _getSelectedImageContainer(),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+              sliver: SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        child: FittedBox(
+                          fit: BoxFit.cover,
+                          child: Image.asset('images/item$index.png'),
+                        ),
+                      ),
+                    );
+                  },
+                  childCount: 10,
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
