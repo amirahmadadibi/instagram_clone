@@ -76,8 +76,103 @@ class _ActivityScreenState extends State<ActivityScreen>
   }
 
   Widget _getRow() {
-    return Row(
-      children: [],
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 18),
+      child: Row(
+        children: [
+          Container(
+            height: 6,
+            width: 6,
+            decoration:
+                BoxDecoration(color: Color(0xffF35383), shape: BoxShape.circle),
+          ),
+          SizedBox(
+            width: 7,
+          ),
+          SizedBox(
+            height: 40,
+            width: 40,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: Image.asset('images/item8.png'),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'amirahmadadibii',
+                    style: TextStyle(
+                        fontFamily: 'GB', fontSize: 12, color: Colors.white),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    'Started Following',
+                    style: TextStyle(
+                        fontFamily: 'GM',
+                        fontSize: 12,
+                        color: Color(0xffC5C5C5)),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Text(
+                    'you',
+                    style: TextStyle(
+                        fontFamily: 'GM',
+                        fontSize: 12,
+                        color: Color(0xffC5C5C5)),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    '3min',
+                    style: TextStyle(
+                        fontFamily: 'GB',
+                        fontSize: 12,
+                        color: Color(0xffC5C5C5)),
+                  )
+                ],
+              )
+            ],
+          ),
+          Spacer(),
+
+          OutlinedButton(
+            onPressed: () {},
+            child: Text(
+              'Message',
+              style: TextStyle(
+                  fontFamily: 'GB', fontSize: 12, color: Color(0xffC5C5C5)),
+            ),
+            style: OutlinedButton.styleFrom(
+                side: BorderSide(color: Color(0xffC5C5C5), width: 2)),
+          )
+          // SizedBox(
+          //   height: 40,
+          //   width: 40,
+          //   child: ClipRRect(
+          //     borderRadius: BorderRadius.all(Radius.circular(10)),
+          //     child: FittedBox(
+          //       fit: BoxFit.cover,
+          //       child: Image.asset('images/item1.png'),
+          //     ),
+          //   ),
+          // )
+        ],
+      ),
     );
   }
 }
