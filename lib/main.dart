@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/activity_screen.dart';
 import 'package:instagram/screens/add_content_screen.dart';
 
 void main() {
@@ -29,7 +30,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: AddContentScreen(),
+      home: ActivityScreen(),
     );
   }
 }
