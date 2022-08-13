@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/model/enums/activity_type_enum.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({Key? key}) : super(key: key);
@@ -53,7 +54,7 @@ class _ActivityScreenState extends State<ActivityScreen>
                   slivers: [
                     SliverList(
                       delegate: SliverChildBuilderDelegate((context, index) {
-                        return _getRow();
+                        return _getRow(ActivityStatus.lkies);
                       }, childCount: 100),
                     )
                   ],
@@ -75,7 +76,7 @@ class _ActivityScreenState extends State<ActivityScreen>
     );
   }
 
-  Widget _getRow() {
+  Widget _getRow(ActivityStatus status) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 18),
       child: Row(
@@ -149,30 +150,61 @@ class _ActivityScreenState extends State<ActivityScreen>
             ],
           ),
           Spacer(),
-
-          OutlinedButton(
-            onPressed: () {},
-            child: Text(
-              'Message',
-              style: TextStyle(
-                  fontFamily: 'GB', fontSize: 12, color: Color(0xffC5C5C5)),
-            ),
-            style: OutlinedButton.styleFrom(
-                side: BorderSide(color: Color(0xffC5C5C5), width: 2)),
-          )
-          // SizedBox(
-          //   height: 40,
-          //   width: 40,
-          //   child: ClipRRect(
-          //     borderRadius: BorderRadius.all(Radius.circular(10)),
-          //     child: FittedBox(
-          //       fit: BoxFit.cover,
-          //       child: Image.asset('images/item1.png'),
-          //     ),
-          //   ),
-          // )
+          _getActionActivityRow(status)
         ],
       ),
     );
+  }
+
+  Widget _getActionActivityRow(ActivityStatus status) {
+    switch (status) {
+      case ActivityStatus.followBack:
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Color(0xffF35383),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+            ),
+            textStyle: TextStyle(fontFamily: 'GB', fontSize: 16),
+          ),
+          onPressed: () {},
+          child: Text('Follow'),
+        );
+      case ActivityStatus.lkies:
+        return SizedBox(
+          height: 40,
+          width: 40,
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            child: FittedBox(
+              fit: BoxFit.cover,
+              child: Image.asset('images/item1.png'),
+            ),
+          ),
+        );
+
+      case ActivityStatus.following:
+        return OutlinedButton(
+          onPressed: () {},
+          child: Text(
+            'Message',
+            style: TextStyle(
+                fontFamily: 'GB', fontSize: 12, color: Color(0xffC5C5C5)),
+          ),
+          style: OutlinedButton.styleFrom(
+              side: BorderSide(color: Color(0xffC5C5C5), width: 2)),
+        );
+      default:
+        return OutlinedButton(
+          onPressed: () {},
+          child: Text(
+            'Message',
+            style: TextStyle(
+                fontFamily: 'GB', fontSize: 12, color: Color(0xffC5C5C5)),
+          ),
+          style: OutlinedButton.styleFrom(
+              side: BorderSide(color: Color(0xffC5C5C5), width: 2)),
+        );
+    }
   }
 }

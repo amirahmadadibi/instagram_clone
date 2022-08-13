@@ -22,11 +22,12 @@ class Application extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              primary: Color(0xffF35383),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              textStyle: TextStyle(fontFamily: 'GB', fontSize: 16)),
+            primary: Color(0xffF35383),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            textStyle: TextStyle(fontFamily: 'GB', fontSize: 16),
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
