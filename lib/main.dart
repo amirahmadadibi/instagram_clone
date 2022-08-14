@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/screens/activity_screen.dart';
 import 'package:instagram/screens/add_content_screen.dart';
+import 'package:instagram/screens/test_screen.dart';
 
 void main() {
   runApp(Application());

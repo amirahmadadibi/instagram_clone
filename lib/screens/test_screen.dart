@@ -6,53 +6,38 @@ class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(),
-            SliverGrid(
-                delegate: SliverChildBuilderDelegate(
-                  ((context, index) {
-                    return Container(
-                      margin: EdgeInsets.all(10),
-                      color: Colors.red,
-                      height: 100,
-                    );
-                  }),
-                  childCount: 100,
-                ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4))
-          ],
+      body: CustomScrollView(slivers: [
+        SliverAppBar(
+          toolbarHeight: 60,
+          title: Row(children: [Icon(Icons.abc)]),
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(0),
+            child: Stack(
+              children: [
+                Positioned(
+                  child: Container(
+                    width: 80,
+                    height: 80,
+                    color: Colors.green,
+                  ),
+                )
+              ],
+            ),
+          ),
+          expandedHeight: 300,
+          pinned: true,
+          backgroundColor: Colors.green,
+          flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset(
+            'images/item1.png',
+            fit: BoxFit.cover,
+          )),
         ),
-      ),
-    );
-  }
-
-  Widget _getSimpleSliverListDelegate() {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (context, index) {
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            height: 100,
-            color: Colors.red,
-          );
-        },
-        childCount: 10,
-      ),
-    );
-  }
-
-  Widget _getExplicitSliverDelegate() {
-    return SliverList(
-      delegate: SliverChildListDelegate(
-        [
-          Container(color: Colors.red, height: 150.0),
-          Container(color: Colors.purple, height: 150.0),
-          Container(color: Colors.green, height: 150.0),
-        ],
-      ),
+        SliverToBoxAdapter(
+          child: Text(
+              ' alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  fkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf fkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf fkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf fkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf fkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf fkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf fkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf    alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf   alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf  alskdfja;lsdkf jasl;dkf jasdl;fk jasldkfjasdlfkjasdlfkajsdlfkajslaksjfals;kdf a;sldf '),
+        )
+      ]),
     );
   }
 }
