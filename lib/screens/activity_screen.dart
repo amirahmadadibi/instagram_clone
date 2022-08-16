@@ -84,7 +84,10 @@ class _ActivityScreenState extends State<ActivityScreen>
             child: Text(
               'Today',
               style: TextStyle(
-                  fontSize: 16, fontFamily: 'GB', color: Colors.white),
+                fontSize: 16,
+                fontFamily: 'GB',
+                color: Colors.white,
+              ),
             ),
           ),
         ),

@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+
+class UserProfileScreen extends StatelessWidget {
+  const UserProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xff1C1F2E),
+      body: Center(
+        child: _getHeaderProfile(),
+      ),
+    );
+  }
+
+  Widget _getHeaderProfile() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 2,
+                color: Color(0xffF35383),
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(2),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(13)),
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: Image.asset('images/profile.png'),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 15,
+          ),
+          Container(
+            height: 70,
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'امیراحمدادیبی',
+                    style: TextStyle(
+                        color: Colors.white, fontFamily: 'SM', fontSize: 14),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'amriahmadadibi',
+                    style: TextStyle(
+                        color: Color(0xffC5C5C5),
+                        fontFamily: 'GB',
+                        fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Spacer(),
+          Image.asset('images/icon_profile_edit.png')
+        ],
+      ),
+    );
+  }
+}
