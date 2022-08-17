@@ -43,7 +43,9 @@ class UserProfileScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: _getHeaderProfile(),
-            )
+            ),
+            SliverPersistentHeader(
+                pinned: true, floating: true, delegate: TabBarViewDelegate())
           ];
         },
         body: Container(color: Colors.red),
@@ -114,5 +116,33 @@ class UserProfileScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class TabBarViewDelegate extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      child: ClipRRect(
+        child: FittedBox(
+          fit: BoxFit.cover,
+          child: Image.asset('images/item3.png'),
+        ),
+      ),
+    );
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => 300;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent => 50;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }
