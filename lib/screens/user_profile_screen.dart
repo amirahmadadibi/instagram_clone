@@ -11,16 +11,25 @@ class UserProfileScreen extends StatelessWidget {
         headerSliverBuilder: (context, isScrolled) {
           return [
             SliverAppBar(
+              // pinned: true,
+              toolbarHeight: 80,
+              actions: [
+                Padding(
+                  padding: EdgeInsets.only(right: 18, top: 18),
+                  child: Icon(Icons.menu),
+                )
+              ],
               bottom: PreferredSize(
                 preferredSize: Size.fromHeight(10),
                 child: Container(
                   height: 14,
                   decoration: BoxDecoration(
-                      color: Color(0xff1C1F2E),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                      )),
+                    color: Color(0xff1C1F2E),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                    ),
+                  ),
                 ),
               ),
               backgroundColor: Color(0xff1C1F2E),
@@ -31,6 +40,9 @@ class UserProfileScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
+            ),
+            SliverToBoxAdapter(
+              child: _getHeaderProfile(),
             )
           ];
         },
