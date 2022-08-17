@@ -7,8 +7,34 @@ class UserProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
-      body: Center(
-        child: _getHeaderProfile(),
+      body: NestedScrollView(
+        headerSliverBuilder: (context, isScrolled) {
+          return [
+            SliverAppBar(
+              bottom: PreferredSize(
+                preferredSize: Size.fromHeight(10),
+                child: Container(
+                  height: 14,
+                  decoration: BoxDecoration(
+                      color: Color(0xff1C1F2E),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                      )),
+                ),
+              ),
+              backgroundColor: Color(0xff1C1F2E),
+              expandedHeight: 170,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Image.asset(
+                  'images/item1.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+          ];
+        },
+        body: Container(color: Colors.red),
       ),
     );
   }
