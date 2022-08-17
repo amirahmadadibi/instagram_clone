@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class UserProfileScreen extends StatelessWidget {
   const UserProfileScreen({Key? key}) : super(key: key);
@@ -51,12 +52,15 @@ class UserProfileScreen extends StatelessWidget {
                 floating: true,
                 delegate: TabBarViewDelegate(
                   TabBar(
+                    indicatorPadding: EdgeInsets.only(bottom: 4),
+                    indicatorWeight: 2,
+                    indicatorColor: Color(0xffF35383),
                     tabs: [
                       Tab(
-                        text: 'text1',
+                        icon: Image.asset('images/icon_tab_posts.png'),
                       ),
                       Tab(
-                        text: 'text2',
+                        icon: Image.asset('images/icon_tab_bookmark.png'),
                       ),
                     ],
                   ),
@@ -65,11 +69,79 @@ class UserProfileScreen extends StatelessWidget {
             ];
           },
           body: TabBarView(children: [
-            Container(
-              color: Colors.amber,
+            CustomScrollView(
+              slivers: [
+                SliverPadding(
+                  padding: EdgeInsets.only(top: 20),
+                  sliver: SliverGrid(
+                    delegate: SliverChildBuilderDelegate(((context, index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: FittedBox(
+                            fit: BoxFit.cover,
+                            child: Image.asset('images/item$index.png'),
+                          ),
+                        ),
+                      );
+                    }), childCount: 10),
+                    gridDelegate: SliverQuiltedGridDelegate(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        repeatPattern: QuiltedGridRepeatPattern.inverted,
+                        pattern: [
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(2, 2),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                        ]),
+                  ),
+                )
+              ],
             ),
-            Container(
-              color: Colors.green,
+            CustomScrollView(
+              slivers: [
+                SliverPadding(
+                  padding: EdgeInsets.only(top: 20),
+                  sliver: SliverGrid(
+                    delegate: SliverChildBuilderDelegate(((context, index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          child: FittedBox(
+                            fit: BoxFit.cover,
+                            child: Image.asset('images/item$index.png'),
+                          ),
+                        ),
+                      );
+                    }), childCount: 10),
+                    gridDelegate: SliverQuiltedGridDelegate(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        repeatPattern: QuiltedGridRepeatPattern.inverted,
+                        pattern: [
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(2, 2),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                        ]),
+                  ),
+                )
+              ],
             ),
           ]),
         ),
