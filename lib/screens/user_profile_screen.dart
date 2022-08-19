@@ -72,7 +72,7 @@ class UserProfileScreen extends StatelessWidget {
             CustomScrollView(
               slivers: [
                 SliverPadding(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(top: 20, left: 18, right: 18),
                   sliver: SliverGrid(
                     delegate: SliverChildBuilderDelegate(((context, index) {
                       return Container(
@@ -109,7 +109,7 @@ class UserProfileScreen extends StatelessWidget {
             CustomScrollView(
               slivers: [
                 SliverPadding(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(top: 20, left: 18, right: 18),
                   sliver: SliverGrid(
                     delegate: SliverChildBuilderDelegate(((context, index) {
                       return Container(
