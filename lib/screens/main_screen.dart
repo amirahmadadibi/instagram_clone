@@ -53,9 +53,25 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Text('text'),
-      ),
+      body: getLayout().elementAt(_selectedBottomNavigationItem),
     );
+  }
+
+  List<Widget> getLayout() {
+    return <Widget>[
+      Container(
+        color: Colors.red,
+        child: Center(child: TextField()),
+      ),
+      Container(
+        color: Colors.blue,
+      ),
+      Container(
+        color: Colors.green,
+      ),
+      Container(
+        color: Colors.yellow,
+      ),
+    ];
   }
 }
