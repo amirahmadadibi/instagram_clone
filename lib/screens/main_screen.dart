@@ -15,40 +15,78 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xff1C1F2E),
         currentIndex: _selectedBottomNavigationItem,
         onTap: (int index) {
           setState(() {
             _selectedBottomNavigationItem = index;
           });
         },
-        selectedFontSize: 20,
-        selectedIconTheme: IconThemeData(
-          color: Colors.black,
-        ),
-        selectedItemColor: Colors.red,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-        //
-        unselectedFontSize: 12,
-        unselectedItemColor: Colors.white,
-        //
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.sports_basketball),
+            icon: Image.asset('images/icon_home.png'),
+            activeIcon: Image.asset('images/icon_active_home.png'),
             label: 'Item1',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.sports_basketball),
+            icon: Image.asset('images/icon_search_navigation.png'),
+            activeIcon: Image.asset('images/icon_search_navigation_active.png'),
             label: 'Item2',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.sports_basketball),
+            icon: Image.asset('images/icon_add_navigation.png'),
+            activeIcon: Image.asset('images/icon_add_navigation_active.png'),
             label: 'Item3',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.sports_basketball),
+            icon: Image.asset('images/icon_activity_navigation.png'),
+            activeIcon:
+                Image.asset('images/icon_activity_navigation_active.png'),
+            label: 'Item4',
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2,
+                  color: Color(0xffC5C5C5),
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(6)),
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: Image.asset('images/profile.png'),
+                ),
+              ),
+            ),
+            activeIcon: Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2,
+                  color: Color(0xffF35383),
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(6)),
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: Image.asset('images/profile.png'),
+                ),
+              ),
+            ),
             label: 'Item4',
           ),
         ],
