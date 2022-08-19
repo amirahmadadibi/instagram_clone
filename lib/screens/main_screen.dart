@@ -53,7 +53,10 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: getLayout().elementAt(_selectedBottomNavigationItem),
+      body: IndexedStack(
+        index: _selectedBottomNavigationItem,
+        children: getLayout(),
+      ),
     );
   }
 
