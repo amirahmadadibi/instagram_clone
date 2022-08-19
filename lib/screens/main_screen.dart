@@ -22,6 +22,18 @@ class _MainScreenState extends State<MainScreen> {
             _selectedBottomNavigationItem = index;
           });
         },
+        selectedFontSize: 20,
+        selectedIconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        selectedItemColor: Colors.red,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        //
+        unselectedFontSize: 12,
+        unselectedItemColor: Colors.white,
+        //
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.sports_basketball),
