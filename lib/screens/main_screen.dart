@@ -8,21 +8,37 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int _selectedBottomNavigationItem = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.green,
+        currentIndex: _selectedBottomNavigationItem,
+        onTap: (int index) {
+          setState(() {
+            _selectedBottomNavigationItem = index;
+          });
+        },
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.sports_basketball), label: 'Item1'),
+            icon: Icon(Icons.sports_basketball),
+            label: 'Item1',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.sports_basketball), label: 'Item2'),
+            icon: Icon(Icons.sports_basketball),
+            label: 'Item2',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.sports_basketball), label: 'Item3'),
+            icon: Icon(Icons.sports_basketball),
+            label: 'Item3',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.sports_basketball), label: 'Item4'),
+            icon: Icon(Icons.sports_basketball),
+            label: 'Item4',
+          ),
         ],
       ),
       body: Center(
